@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <script src="/dist/js/color-modes.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+  <meta name="generator" content="Hugo 0.118.2" />
+  <title>Personal Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+
+  <link href="/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/dist/css/carousel.css" rel="stylesheet" />
+  <style>
+    /* Style for full-screen spinner */
+
+    #progress-bar {
+      background-color: #ff0000;
+      /* Red color for the progress bar */
+    }
+  </style>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, 0.1);
+      border: solid rgba(0, 0, 0, 0.15);
+      border-width: 1px 0;
+      box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -0.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+  </style>
+  <style>
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .loader {
+      border: 6px solid #f3f3f3; /* Light grey */
+      border-top: 6px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+  
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+    </symbol>
+  </svg>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+      aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+        <use href="#circle-half"></use>
+      </svg>
+      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#sun-fill"></use>
+          </svg>
+          Light
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+          aria-pressed="false">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#moon-stars-fill"></use>
+          </svg>
+          Dark
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+          aria-pressed="true">
+          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+            <use href="#circle-half"></use>
+          </svg>
+          Auto
+          <svg class="bi ms-auto d-none" width="1em" height="1em">
+            <use href="#check2"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <header data-bs-theme="dark">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4>Document</h4>
+            <p class="text-body-secondary">
+              Some important document in the album below, the author, or any
+              other background context. Make it a few sentences long so folks
+              can pick up some informative tidbits. Then, link them off to
+              some social networking sites or contact information.
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4>Contact Author</h4>
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://www.instagram.com/devil.sudha_anshu/" class="text-white">Follow on Instagram
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://facebook.com/sudhanshuraj340/" class="text-white">Like on Facebook
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                  </svg></a>
+              </li>
+              <li>
+                <a href="mailto:sudhanshubhushan340@gmail.com" class="text-white">Email me
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                  </svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar d-flex align-items-center">
+          <img src="/dist/img/card-img/_04b20ac6-6707-40ca-bb88-c8a9af36afbb logo.jpg" width="40px" alt="logo"
+            class="rounded-3" />
+        </a>
+        <div class="form-group">
+          <input class="form-control border-3" type="search" placeholder="Search" id="searchInput" />
+        </div>
+
+        <button class="navbar-toggler border-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <image width="100%" height="100%"
+              xlink:href="/dist/img/card-img/Group 1schoolblacknew_Images/Group 1aadhaarcardblackbg.svg"></image>
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Example headline.</h1>
+              <p class="opacity-75">
+                Some representative placeholder content for the first slide of
+                the carousel.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#">Sign up today</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <image width="100%" height="100%"
+              xlink:href="/dist/img/card-img/Group 1schoolblacknew_Images/Group 1pancardblackbg.svg"></image>
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          </svg>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>
+                Some representative placeholder content for the second slide
+                of the carousel.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <image width="100%" height="100%"
+              xlink:href="/dist/img/card-img/Group 1schoolblacknew_Images/Group 1votercardblackbg.svg"></image>
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>One more for good measure.</h1>
+              <p>
+                Some representative placeholder content for the third slide of
+                this carousel.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <section class="py-2 text-center container">
+      <div class="row py-lg-4">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <a href="https://www.facebook.com/sudhanshuraj340/" class="btn btn-primary my-2"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
+              viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+            </svg>
+            Facebook</a>
+          <a href="mailto:sudhanshubhushan340@gmail.com" class="btn btn-secondary my-2"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+            </svg>
+            Email</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-body-secondary">
+      <div id="noMatchMessage" class="alert alert-warning m-4" style="display: none">
+        <strong>Nothing found,</strong> try searching again
+      </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="AadhaarCard, Aadhar Card, Aadhaar Card, Card">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1aadhaarcardblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Aadhaar Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Admit Card, Card, Admitcard, Bsc Admit Card">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1bscadmitblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">B.Sc Admit Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="/dist/img/preview-img/B.Sc Admit Card copy.jpg">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="B.Sc Admit Card.pdf">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Registration Card, Card, Bscregistration, Bsc Registration Card">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1bscregistrationblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">B.Sc Registration Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="/dist/img/preview-img/Web capture_6-1-2024_04337_.jpeg">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="B.Sc Registration">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Caste Certificate, Certificate, Castecertificate">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1casteblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Caste Certificate</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Deled Admit Card, Deledadmitcard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1deledadmitblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">D.El.Ed Admit Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Deled Caf, Deledcaf">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1deledcafblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">D.El.Ed CAF</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Deled Dummy Admit Card, Deleddummyadmitcard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1deleddummyblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">D.El.Ed Dummy Admit Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Deled Intimation Letter,  Deledintimationletter">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1deledintimationblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">D.El.Ed Intimation Letter</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Deled Score Card, Deledscorecard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1deledscoreblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">D.El.Ed Score Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Income Certificate, Incomecertificate">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1incomeblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Income Certificate</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Intermediate Admit Card, Intermediateadmitcard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1interadmitblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Intermediate Admit Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Intermediate Marksheet, Intermediatemarksheet">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1intermarksheetblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Intermediate Marksheet</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Intermediate Provisional, Intermediateprovisional">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1interprovisionalblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Intermediate Provisional</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Intermediate Registration, Intermediateregistration">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1interregisrationblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Intermediate Registration</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Matric Admit Card, Matricadmitcard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1matricadmitblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Matric Admit Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Matric Certificate, Matriccertificate">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1matriccertificateblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Matric Certificate</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Matric Marksheet, Matricmarksheet">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1matricmarksheetblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Matric Marksheet</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Matric Provisional, Matricprovisional">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1matricprovisionalsvgblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Matric Provisional</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Matric Registration, Matricregistration">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1matricregistrationblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Matric Registration</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Pan Card, Pancard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1pancardblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Pan Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Photo, Signature, Photo and Signature">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1photo&signblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Photo & Sign</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Residence Certificate, Residencecertificate">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1residenceblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Residence Certificate</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="School Leaving Certificate, Schoolleavingcertificate">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1schoolblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">School Leaving Certificate</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+          <!-- start -->
+          <div class="col">
+            <div class="card shadow" data-card-name="Voter Card, Votercard">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%"
+                class="rounded-top-2" version="1.1" style="
+                    shape-rendering: geometricPrecision;
+                    text-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  " viewBox="0 0 1333.33 749.99">
+                <defs>
+                  <clipPath id="id0">
+                    <rect x="-0" y="-0" width="100%" height="100%" />
+                  </clipPath>
+                </defs>
+                <g id="Layer_x0020_1">
+                  <g style="clip-path: url(#id0)">
+                    <image x="-0" y="-0" width="100%" height="100%"
+                      xlink:href="/dist/img/card-img/Group 1votercardblack.svg" />
+                  </g>
+                </g>
+              </svg>
+              <div class="card-body">
+                <p class="card-text">Voter Card</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-secondary view-button" data-bs-toggle="modal"
+                      data-bs-target="#myModal" data-src="">
+                      View
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary download-button pdf-btn"
+                      data-bs-toggle="modal" data-bs-target="#pdfModal" data-file="Group 1aadhaarcard.svg">
+                      Download pdf
+                    </button>
+                  </div>
+                  <div>
+                    <small class="d-flex text-body-secondary">Last Updated :</small>
+                    <small class="time text-body-secondary" data-target="2024-01-03T21:00:00"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Modal start -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Image Viewer</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Add an ID to the image tag to update its source dynamically -->
+            <img id="modal-image" class="img-fluid" alt="Image" />
+            <div class="progress mt-3">
+              <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Image Modal End -->
+
+    <!-- Download Modal start -->
+
+    <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pdfModalLabel">Download PDF</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="text-align: left">
+            <p>Solve the captcha:</p>
+            <span id="captchaContainer"></span>
+            <input type="text" class="form-control" id="captchaInput" placeholder="Enter Captcha" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="verifyButton" onclick="verifyCaptcha()">
+              Verify Captcha
+            </button>
+            <button type="button" class="btn btn-primary" id="downloadLink" download style="display: none"
+              onclick="downloadFile()">
+              Download
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Download Modal End -->
+  </main>
+
+  <footer class="text-body-secondary py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">
+        Album example is &copy; Bootstrap, but please download and customize
+        it for yourself!
+      </p>
+      <p class="mb-0">
+        New to Bootstrap? <a href="/">Visit the homepage</a> or read our
+        <a href="../getting-started/introduction/">getting started guide</a>.
+      </p>
+    </div>
+  </footer>
+  <script src="/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/popper.min.js"></script>
+  <script src="/dist/js/jquery.slim.min.js"></script>
+  <script src="/dist//js/script.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      let progressTimeout;
+
+      // Function to show the image and fill the progress bar
+      function showImage(imageSrc) {
+        // Reset the progress bar
+        $("#progress-bar").width("0%").attr("aria-valuenow", 0);
+
+        // Set the image source dynamically based on the button clicked
+        $("#modal-image").attr("src", imageSrc);
+        $("#myModal").modal("show");
+
+        // Set the duration for displaying the image and filling the progress bar (in milliseconds)
+        const duration = 6000;
+        const interval = 50; // Update the progress bar every 50 milliseconds
+
+        let currentProgress = 0;
+
+        // Update the progress bar
+        const updateProgressBar = () => {
+          currentProgress += (interval / duration) * 100;
+          $("#progress-bar")
+            .width(currentProgress + "%")
+            .attr("aria-valuenow", currentProgress);
+
+          if (currentProgress < 100) {
+            progressTimeout = setTimeout(updateProgressBar, interval);
+          } else {
+            // Hide the modal when progress is complete
+            $("#myModal").modal("hide");
+          }
+        };
+
+        // Initial call to updateProgressBar
+        progressTimeout = setTimeout(updateProgressBar, interval);
+      }
+
+      // Attach the showImage function to all buttons with the "view-button" class
+      $(".view-button").on("click", function () {
+        // Clear the previous timeout to prevent it from interfering with the new one
+        clearTimeout(progressTimeout);
+
+        const imageSrc = $(this).data("src");
+        showImage(imageSrc);
+      });
+
+      // Reset the progress bar when the modal is closed
+      $("#myModal").on("hide.bs.modal", function () {
+        // Clear the timeout when the modal is closed
+        clearTimeout(progressTimeout);
+
+        // Reset the progress bar
+        $("#progress-bar").width("0%").attr("aria-valuenow", 0);
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      var num1, num2;
+      var captchaValue;
+
+      // Function to generate a simple arithmetic captcha
+      function generateCaptcha() {
+        num1 = Math.floor(Math.random() * 100) + 1; // Random number 1-100
+        num2 = Math.floor(Math.random() * 100) + 1; // Random number 1-100
+        captchaValue = num1 + num2; // Store the correct answer
+        return "What is " + num1 + " + " + num2 + " = ?";
+      }
+
+      // Function to update the captcha
+      function updateCaptcha() {
+        var captchaContainer = $("#captchaContainer");
+        captchaContainer.text(generateCaptcha());
+      }
+
+      // Function to check the captcha value
+      function checkCaptcha(answer) {
+        return parseInt(answer) === captchaValue;
+      }
+
+      // Function to verify the captcha
+      window.verifyCaptcha = function () {
+        var captchaInput = $("#captchaInput");
+        var verifyButton = $("#verifyButton");
+        var downloadLink = $("#downloadLink");
+
+        if (checkCaptcha(captchaInput.val())) {
+          // If captcha is correct, hide verify button and show download button
+          verifyButton.hide();
+          downloadLink.show();
+        } else {
+          alert("Captcha verification failed. Please try again.");
+          // If captcha is incorrect, reset captcha, show a new one, and clear the input field
+          updateCaptcha();
+          captchaInput.val("");
+        }
+      };
+
+      // Function to trigger the download based on the selected file
+      window.downloadFile = function () {
+        var fileName = $("#downloadLink").attr("data-file");
+        var filePath = "/dist/img/document/" + fileName; // Replace with the actual path
+
+        // Create a temporary link element
+        var link = document.createElement("a");
+        link.href = filePath;
+        link.download = fileName;
+
+        // Trigger a click on the link to start the download
+        link.click();
+      };
+
+      // Execute when the modal is shown
+      $("#pdfModal").on("shown.bs.modal", function (event) {
+        // Get the button that triggered the modal
+        var button = $(event.relatedTarget);
+
+        // Update the data-file attribute of the download button
+        $("#downloadLink").attr("data-file", button.data("file"));
+
+        updateCaptcha();
+      });
+
+      // Execute when the captcha input changes
+      $("#captchaInput").on("input", function () {
+        // Nothing to do here for the current implementation
+      });
+
+      // Execute when the modal is hidden
+      $("#pdfModal").on("hidden.bs.modal", function () {
+        // Reset captcha on modal close
+        updateCaptcha();
+        $("#captchaInput").val(""); // Clear input
+
+        // Show verify button and hide download button
+        $("#verifyButton").show();
+        $("#downloadLink").hide();
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get all elements with the class 'time'
+      var timeElements = document.querySelectorAll(".time");
+
+      // Convert milliseconds to a dynamic string (few years ago, few months ago, etc.)
+      function convertTimeToDynamicString(milliseconds) {
+        var intervals = [
+          { label: " years", duration: 365 * 24 * 60 * 60 * 1000 },
+          { label: " months", duration: 30 * 24 * 60 * 60 * 1000 },
+          { label: " weeks", duration: 7 * 24 * 60 * 60 * 1000 },
+          { label: " days", duration: 24 * 60 * 60 * 1000 },
+          { label: " hours", duration: 60 * 60 * 1000 },
+          { label: " minutes", duration: 60 * 1000 },
+          { label: " seconds", duration: 1000 },
+        ];
+
+        var elapsedMilliseconds = Date.now() - milliseconds;
+
+        for (var i = 0; i < intervals.length; i++) {
+          var interval = intervals[i];
+          if (elapsedMilliseconds >= interval.duration) {
+            var count = Math.floor(elapsedMilliseconds / interval.duration);
+            return count + " " + interval.label + " ago";
+          }
+        }
+
+        return "few seconds ago"; // Default
+      }
+
+      // Update all time elements with the dynamic string
+      function updateDynamicTimeString(element) {
+        var targetDate = new Date(
+          element.getAttribute("data-target")
+        ).getTime();
+        var dynamicString = convertTimeToDynamicString(targetDate);
+        element.innerText = dynamicString;
+      }
+
+      // Call the updateDynamicTimeString function for each time element
+      timeElements.forEach(function (element) {
+        updateDynamicTimeString(element);
+      });
+
+      // Set up an interval to update the dynamic string every minute
+      setInterval(function () {
+        timeElements.forEach(function (element) {
+          updateDynamicTimeString(element);
+        });
+      }, 60000);
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#searchInput").on("input", function () {
+        var searchTerm = $(this).val().toLowerCase();
+        var noMatchMessage = $("#noMatchMessage");
+
+        $(".card").each(function () {
+          var card = $(this);
+          var cardName = card.data("card-name").toLowerCase();
+          var containsTerm = cardName.includes(searchTerm);
+
+          // Show or hide the card based on the search result
+          if (containsTerm) {
+            card.show();
+            noMatchMessage.hide();
+          } else {
+            card.hide();
+          }
+        });
+
+        // Show or hide the "No Match" message based on search results
+        if ($(".card:visible").length === 0) {
+          noMatchMessage.show();
+        } else {
+          noMatchMessage.hide();
+        }
+      });
+    });
+  </script>
+   <script>
+    $(document).ready(function () {
+      $('.pdf-btn').on('click', function () {
+        // Show loader
+        $('.loader-container').show();
+
+        // Simulate a delay (2 seconds in this case)
+        setTimeout(function () {
+          // Hide loader
+          $('.loader-container').hide();
+
+          // Open the modal
+          $('#pdfModal').modal('show');
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>

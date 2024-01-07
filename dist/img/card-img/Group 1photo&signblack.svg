@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="400px" height="225px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 400 225"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:2.81;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.61313}
+    .str1 {stroke:white;stroke-width:2.36;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.61313}
+    .fil4 {fill:none}
+    .fil3 {fill:none;fill-rule:nonzero}
+    .fil0 {fill:#55595C}
+    .fil1 {fill:white}
+    .fil2 {fill:white;fill-rule:nonzero}
+    .fnt0 {font-weight:normal;font-size:50px;font-family:'Tiro Devanagari Hindi'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" x="0" y="0" width="400" height="225"/>
+  <text x="53.97" y="53.47"  class="fil1 fnt0">Photo &amp; Sign</text>
+  <path class="fil2" d="M290.23 85.17c3.84,0 6.87,2.56 6.87,5.83l0 105.09c0,3.28 -3.03,5.84 -6.87,5.84l-178.59 0c-3.8,0 -6.87,-2.56 -6.87,-5.84l0 -105.09c0,-3.27 3.07,-5.83 6.87,-5.83l178.59 0zm-178.59 -11.69c-11.38,0 -20.61,7.83 -20.61,17.52l0 105.09c0,9.7 9.23,17.52 20.61,17.52l178.59 0c11.39,0 20.6,-7.82 20.6,-17.52l0 -105.09c0,-9.69 -9.21,-17.52 -20.6,-17.52l-178.59 0z"/>
+  <path class="fil2" d="M152.37 143.29c6.7,0 12.12,-5.65 12.12,-12.63 0,-6.96 -5.42,-12.6 -12.12,-12.6 -6.71,0 -12.11,5.64 -12.11,12.6 0,6.98 5.4,12.63 12.11,12.63zm-20.19 25.22c0,0 -4.05,0 -4.05,-4.21 0,-4.19 4.05,-16.81 24.24,-16.81 20.2,0 24.24,12.62 24.24,16.81 0,4.21 -4.04,4.21 -4.04,4.21l-40.39 0z"/>
+  <path class="fil3 str0" d="M128.58 109.2l47.58 0c2.26,0 4.12,1.85 4.12,4.12l0 58.36c0,2.27 -1.86,4.12 -4.12,4.12l-47.58 0c-2.27,0 -4.12,-1.85 -4.12,-4.12l0 -58.36c0,-2.27 1.85,-4.12 4.12,-4.12z"/>
+  <polygon class="fil1" points="198.42,213.61 198.42,73.48 203.43,73.48 203.44,213.61 198.42,213.61 "/>
+  <path class="fil4 str1" d="M228.24 173.56c8.32,-7.84 15.97,-20.27 22.84,-29.18 0.11,-0.13 30.66,-38.4 16.04,-33.32 -11.59,4.02 -8.14,21.75 -8.14,36.07 0,16.65 -23.48,26.67 -36.34,16.22 -13.76,-11.2 11.37,-37.16 19.07,-8.48 3.04,11.26 7.21,20.1 21.22,15.52 5.47,-1.79 13.61,-14.33 14.05,-14.44"/>
+ </g>
+</svg>
