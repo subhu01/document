@@ -21,7 +21,7 @@ viewBox="0 0 400 225"
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect class="fil0" y="-180" x="-120" width="200%" height="250%" />
+  <rect class="fil0" y="-210" x="-120" width="200%" height="300%" />
   <path id="card" class="fil1 str0" d="M115.17 68.94l171.52 0c11.8,0 21.44,9.65 21.44,21.44l0 100.06c0,11.79 -9.64,21.44 -21.44,21.44l-171.52 0c-11.79,0 -21.44,-9.65 -21.44,-21.44l0 -100.06c0,-11.79 9.65,-21.44 21.44,-21.44z"/>
   <g transform="matrix(1 0 0 1 -152.006 -58.9938)">
    <text x="200" y="112.5"  class="fil2 fnt0" >Aadhaar Card</text>
