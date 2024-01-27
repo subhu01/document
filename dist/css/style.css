@@ -1,0 +1,29 @@
+
+body {
+    background-image: var(--background-light);
+    
+    transition: background-image 2s ease;
+    
+}
+
+.card{
+    background-color: var(--background-light);
+    
+}
+
+[data-bs-theme="dark"] body {
+    background-image: var(--background-dark);
+}
+
+.btn-toggle-dark-mode[aria-pressed="true"] {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+svg {
+    fill: #000000; /* Adjust SVG fill color for light theme */
+}
+
+.btn-toggle-dark-mode[aria-pressed="true"] svg {
+    fill: #ffffff; /* Adjust SVG fill color for dark theme */
+}
