@@ -1,17 +1,10 @@
 
-body {
-    background-image: var(--background-light);
-    background-attachment: fixed;
-    transition: background-image 2s ease;
-    
-}
+
 
 footer{
     background-image: var(--foter-light) ;
-    transition: background-image 2s ease;
-    background-size:cover;
-    background-position:top; 
-    background-repeat: no-repeat;
+    
+    
        
 }
 
@@ -21,15 +14,32 @@ footer{
     
 }
 
-[data-bs-theme="dark"] body {
-    background-image: var(--background-dark);
-    background-size: cover;
+[data-bs-theme="dark"] main {
+    background: var(--background-dark);
     background-attachment: fixed;
+    background-position: center;
+    transition: background 2s ease;
+    
+}
+[data-bs-theme="light"] main {
+    background: var(--background-light);
+    background-attachment: fixed;
+    transition: background 2s ease;
+    
 }
 
 
 
 
+[data-bs-theme="light"] footer {
+    background-image: var(--foter-light);
+    transition: background-image 2s ease;
+    background-position: top;
+    
+     
+}
 [data-bs-theme="dark"] footer {
     background-image: var(--foter-dark);
+    transition: background-image 2s ease;
+    background-position:top; 
 }
