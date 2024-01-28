@@ -4,10 +4,11 @@
     
 }
 
-[data-bs-theme="light"] main {
+main {
     background: var(--background-light);
     background-attachment: fixed;
     transition: background 2s ease;
+
     
 }
 
@@ -19,7 +20,7 @@
     
 }
 
-[data-bs-theme="light"] footer {
+footer {
     background-image: var(--foter-light);
     transition: background-image 2s ease;
     background-position: top;
