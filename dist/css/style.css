@@ -1,16 +1,13 @@
 
-
-
-footer{
-    background-image: var(--foter-light) ;
-    
-    
-       
-}
-
-
 .card{
     background-color: var(--background-light);
+    
+}
+
+[data-bs-theme="light"] main {
+    background: var(--background-light);
+    background-attachment: fixed;
+    transition: background 2s ease;
     
 }
 
@@ -21,15 +18,6 @@ footer{
     transition: background 2s ease;
     
 }
-[data-bs-theme="light"] main {
-    background: var(--background-light);
-    background-attachment: fixed;
-    transition: background 2s ease;
-    
-}
-
-
-
 
 [data-bs-theme="light"] footer {
     background-image: var(--foter-light);
