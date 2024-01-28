@@ -1,7 +1,7 @@
 
 body {
     background-image: var(--background-light);
-    
+    background-attachment: fixed;
     transition: background-image 2s ease;
     
 }
@@ -9,8 +9,10 @@ body {
 footer{
     background-image: var(--foter-light) ;
     transition: background-image 2s ease;
-    background-size: cover;
-    background-position:top;    
+    background-size:cover;
+    background-position:top; 
+    background-repeat: no-repeat;
+       
 }
 
 
@@ -21,6 +23,8 @@ footer{
 
 [data-bs-theme="dark"] body {
     background-image: var(--background-dark);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
